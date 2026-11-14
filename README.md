@@ -3,58 +3,20 @@
 Mod de **cliente** para Fabric (Minecraft Java **1.21.11** y **26.3**) pensado para FFA de CubeCraft.
 *English version below — [English](#english).*
 
-- Separas jugadores específicos en **clanes**. El nombre del clan puede tener **espacios y símbolos** (`Los Pros`, `[ES] Team #1`, `Águilas.GG`).
-- Cuenta **kills y muertes solo entre miembros de clanes** (las kills contra randoms no cuentan para el clan).
-- **Top de jugadores de cada clan** por kills o KD, y **total de cada clan** (kills, muertes, KD y enfrentamientos clan contra clan).
-- Aparte, **conteo de kills y muertes de todos los jugadores de la lobby**.
-- **Menú visual** (tecla **J**) con la cabeza de cada jugador (también de los que no están en la sala), quién está **conectado o desconectado** y un contador por clan.
+- Separa jugadores específicos en **clanes**.
+- Cuenta **kills y muertes solo entre miembros de clanes** (las kills contra randoms no cuentan).
+- **Top de jugadores de cada clan** por kills o KD, y **total de cada clan**.
+- **Menú visual** (tecla **J**).
 - **Jugadores en sala**: todos los de la lobby con sus kills y muertes totales, ordenados por kills o KD.
-- **32 colores** para los clanes o cualquier color con código hexadecimal (`#FF8800`). El color se ve en el menú, el HUD, el chat, en los **nombres de la lista de Tab** y en el **nombre encima de cada jugador** (solo el color, sin etiqueta). Funciona junto con mods de tiers como **TierTagger** y **QTiers**: se ven el tier y el color a la vez.
+- **32 colores** para los clanes o cualquier color con código hexadecimal (`#FF8800`). Funciona junto con mods de tiers como **TierTagger** y **QTiers**.
 - Botón para **activar o pausar el mod** y otro para **ocultar a los desconectados** de las listas (sus stats se siguen guardando).
-- Los jugadores se guardan siempre con su **UUID**: si alguien se cambia el nombre, sigue en su clan y sus kills siguen siendo suyas.
-- Textos en **español o inglés** (menú, HUD, chat y resumen de Discord). Por defecto sigue el idioma del juego.
+- Los jugadores se guardan siempre con su **UUID** por si alguien se cambia el nombre.
+- Textos en **español o inglés**. Por defecto sigue el idioma del juego.
 - HUD en pantalla, comandos `/clanes ...` (o `/clans ...` en inglés) y un **resumen con formato de Discord**.
-
-Como no puedes instalar nada en el servidor de CubeCraft, el mod **lee los mensajes de kills del chat** y lleva la cuenta en tu PC. No envía nada al servidor de Minecraft. En internet solo consulta a Mojang: la API pública para saber el UUID de un jugador que agregas cuando no está en la sala, y las skins de los miembros desconectados para dibujar su cabeza (lo mismo que hace el juego con las cabezas de jugador).
 
 ---
 
-## 1. Conseguir el `.jar`
-
-Elige una de estas dos formas. Las dos descargan Minecraft y las librerías de Fabric la primera vez (tarda unos minutos).
-
-### Opción A: con GitHub (no instalas nada)
-
-1. Crea una cuenta en <https://github.com> y un repositorio nuevo (puede ser privado).
-2. En el repositorio: **Add file → Upload files** y arrastra **todo el contenido** de esta carpeta. La subida por la web se salta la carpeta `.github`: créala a mano con **Add file → Create new file**, nombre `.github/workflows/build.yml`, y pega el contenido de ese archivo. Dale a **Commit changes**.
-3. Ve a la pestaña **Actions**. La compilación arranca sola (unos 3-6 minutos).
-4. Entra a la ejecución terminada (palomita verde) y, abajo en **Artifacts**, descarga `clanstats-mc1.21.11` (la de Lunar 1.21.11) o `clanstats-mc26.3`. Es un `.zip` con el `.jar` adentro.
-
-Si sale una cruz roja, abre el paso que falló y copia el error: con eso se corrige rápido.
-
-### Opción B: compilar en tu PC
-
-1. Instala **JDK 25** (Eclipse Temurin: <https://adoptium.net>). Sirve para las dos versiones.
-2. Abre una terminal dentro de `versions/mc1.21.11` (o `versions/mc26.3`).
-3. Windows: `gradlew.bat build` · Mac/Linux: `./gradlew build`
-4. El mod queda en `build/libs/clanstats-1.3.0+mc1.21.11.jar` (o `...+mc26.3.jar`).
-
-## 2. Instalar
-
-### En Lunar Client (1.16.5 o más nuevo)
-
-1. En el launcher de Lunar abre el selector de versiones (botón de la izquierda) y elige **1.21.11** con **Fabric**.
-2. Abre los mods de esa versión (botón de abajo a la derecha, pestaña **Mods**) y **arrastra el `.jar`** de ClanStats. Si tenías la versión anterior, bórrala primero (no dejes dos ClanStats).
-3. **No agregues Fabric API**: Lunar ya la trae incluida.
-4. Entra a CubeCraft y pulsa **J** para abrir el menú.
-
-### En el launcher normal de Minecraft
-
-1. Instala **Fabric Loader** para tu versión (<https://fabricmc.net/use>).
-2. Descarga **Fabric API** de la **misma versión** de Minecraft (Modrinth) y ponla en `.minecraft/mods`.
-3. Pon el `.jar` de ClanStats en `.minecraft/mods`.
-
-## 3. El menú (1.21.11)
+## 1. El menú (1.21.11)
 
 Se abre con la tecla **J**, con `/clanes menu` o, si tienes **Mod Menu**, con el botón de configuración de ClanStats.
 
@@ -153,59 +115,10 @@ O cualquier otro con código hexadecimal: `#FF8800`, `#3FA7FF`, `#f80`... El col
 
 **Mods de tiers (TierTagger, QTiers):** funcionan junto con ClanStats. Cada mod agrega lo suyo al mismo nombre, así que se ven el tier y el nombre con el color del clan a la vez, en el Tab y encima del jugador.
 
-## 7. Jugadores por UUID
-
-- Solo se agregan **por nombre** y siempre quedan con el **UUID** de su cuenta.
-- Si el jugador **está en la sala**, el UUID sale de la lista de Tab al instante.
-- Si **no está**, se busca en la API de Mojang. Mientras busca, el menú dice "Buscando a ... en Mojang". Si la cuenta existe, se agrega; **si no existe, no se guarda** y te avisa (así no quedan nombres mal escritos). Si no hay conexión con Mojang, tampoco se guarda: prueba otra vez.
-- Cada vez que un miembro aparece en el Tab con **otro nombre pero el mismo UUID**, el mod actualiza el nombre y te avisa: "Juan_MX ahora se llama Juan_2 — sigue en Lobos".
-- Las kills se guardan con el UUID de cada jugador, así que las que hizo con el nombre viejo y con el nuevo se suman juntas.
-- La cabeza de un miembro que no está en la sala se dibuja con su skin real, descargada con su UUID (la primera vez tarda un momento y mientras tanto se ve la skin por defecto).
-
-## 8. Resumen para Discord
-
-**Copiar Discord** (en el menú) o `/clanes copiar` deja en el portapapeles un mensaje así (en el idioma elegido); en Discord solo pegas con **Ctrl+V**:
-
-````
-**⚔️ ClanStats · FFA** — 13/11/2026 21:40
--# Sesión desde 13/11 19:05 · muertes: 152 · jugadores: 37
-
-**🏆 Clanes** (solo kills entre miembros de clanes)
-```
-#   Clan          K     M     KD
-1   Lobos        12     5   2.40
-2   Los Tigres    5    12   0.42
-```
-**Enfrentamientos:** Lobos **12-5** Los Tigres
-
-**👥 Miembros** (kills/muertes · KD)
-```
-Lobos
-  1 Juan_MX               7/2   3.50
-  2 Pepe123               5/3   1.67
-```
-
-**🌍 Lobby** (top 10 de 37, todas las kills)
-```
-  1 Juan_MX           [Lobos]      15/4   3.75
-```
-````
-
-Las tablas van en bloques de código para que se vean alineadas. Nunca pasa de **2000 caracteres** (el límite de un mensaje de Discord): si hay muchos jugadores, muestra menos por lista. El resumen sin recortar está en `/clanes copiar completo` y en `historial/` al reiniciar.
-
-## 9. Cómo cuenta
-
-- **Clanes ("solo entre ellos")**: una kill cuenta para los clanes solo si el asesino **y** la víctima están en clanes **distintos**. Si alguien de un clan mata a un random (o al revés), no cuenta para el clan, pero sí para la lobby.
-- **Fuego amigo**: kills entre miembros del mismo clan; por defecto se muestran aparte ("FF") y no suman. Con `/clanes fuegoamigo contar` sí suman.
-- **Lobby** y **Jugadores en sala**: todas las kills y muertes que aparecen en tu chat, incluidas las muertes sin asesino (vacío, caída).
-- **KD** = kills ÷ muertes (si no tiene muertes, KD = kills).
-- Todo se recalcula desde el registro de kills: si agregas a alguien a un clan tarde, sus kills anteriores se cuentan igual.
-- La sesión se guarda sola y sobrevive a reinicios del juego hasta que la reinicies (botón del menú o `/clanes reset`).
-
 ## 10. Cómo detecta las kills
 
 1. Ya conoce las **87 kill messages de CubeCraft** (incluidas las de Plus, aunque traigan emotes en el nombre), las de Minecraft vanilla y patrones generales en inglés y español ("X fue asesinado por Y", "Y mató a X", "X was defeated by Y").
-2. Revisa que los nombres estén en la **lista de jugadores (Tab)**, y **ignora el chat de jugadores**: nadie puede inventar kills escribiendo "X was slain by Y".
+2. Revisa que los nombres estén en la **lista de jugadores (Tab)**, e **ignora el chat de jugadores**: nadie puede inventar kills escribiendo "X was slain by Y".
 3. **Heurística**: si llega un mensaje que no conoce con exactamente dos jugadores conectados, lo cuenta como kill (sale con "(?)" en modo debug). Se apaga con `/clanes heuristica off`.
 
 **Si juegas CubeCraft en español** u otro idioma, algunos mensajes pueden no reconocerse. Para revisarlo:
@@ -233,13 +146,6 @@ Al actualizar desde la 1.1.0 no se pierde nada: los clanes, miembros, colores y 
 ## 12. ¿Está permitido en CubeCraft?
 
 El mod solo **lee el chat y dibuja en tu pantalla** (el HUD, el menú y el color de los nombres en tu propio Tab): no manda paquetes, no automatiza nada y no da ventaja en el combate, como los mods de HUD o contadores de kills. Aun así, revisa las reglas de mods de CubeCraft antes de usarlo; la responsabilidad es de cada jugador.
-
-## 13. Estado
-
-- La versión 1.1.0 se probó dentro del juego en Lunar Client 1.21.11.
-- La versión 1.2.0 ya se usó dentro del juego en Lunar.
-- Las novedades de la 1.3.0 (Opciones, activar/desactivar, ocultar desconectados, color encima de los jugadores y compatibilidad con TierTagger y QTiers) están probadas con objetos de Minecraft simulados: el nombre se pinta sin tocar el tier, el rango ni los íconos de otros mods.
-- El **color encima de los jugadores** depende de cómo muestre los nombres el servidor: si el servidor dibuja los nombres con su propio sistema en vez del nombre normal de Minecraft, ahí no se verá el color (en el Tab sí). Si la cabeza de un desconectado no carga, se ve la de por defecto.
 
 ## 14. Estructura del proyecto
 
