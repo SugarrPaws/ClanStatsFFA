@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "clanstats",
+  "version": "${version}",
+  "name": "ClanStats FFA",
+  "description": "Estadísticas de clanes para FFA: kills y muertes solo entre clanes, top de cada clan, totales por clan y conteo de toda la lobby. Jugadores guardados por UUID y resumen para Discord. Solo lee los mensajes de kills del chat y dibuja un HUD; no envía nada al servidor de Minecraft.",
+  "license": "MIT",
+  "icon": "assets/clanstats/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.clanstats.ClanStatsClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.0",
+    "fabric-api": "*",
+    "minecraft": "~26.3",
+    "java": ">=25"
+  }
+}

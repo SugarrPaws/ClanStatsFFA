@@ -1,0 +1,43 @@
+plugins {
+	// Desde 26.1 Minecraft no está ofuscado: Loom sin remap, sin línea de mappings
+	id 'net.fabricmc.fabric-loom' version '1.17-SNAPSHOT'
+}
+
+version = "${project.mod_version}+mc${project.minecraft_version}"
+group = project.maven_group
+
+base {
+	archivesName = project.archives_base_name
+}
+
+// El código común (detección de kills, estadísticas, comandos, HUD) se comparte con la versión 1.21.11
+sourceSets {
+	main {
+		java {
+			srcDir '../../common/src/main/java'
+		}
+		resources {
+			srcDir '../../common/src/main/resources'
+		}
+	}
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+}
+
+processResources {
+	inputs.property "version", project.version
+	filteringCharset = "UTF-8"
+
+	filesMatching("fabric.mod.json") {
+		expand "version": inputs.properties.version
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.encoding = "UTF-8"
+	it.options.release = 25
+}
