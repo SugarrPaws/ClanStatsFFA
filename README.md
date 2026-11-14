@@ -14,16 +14,29 @@ Mod de **cliente** para Fabric (Minecraft Java **1.21.11** y **26.3**) pensado p
 - Textos en **español o inglés**. Por defecto sigue el idioma del juego.
 - HUD en pantalla, comandos `/clanes ...` (o `/clans ...` en inglés) y un **resumen con formato de Discord**.
 
+<img width="2560" height="1440" alt="2026-11-13_22 38 52" src="https://github.com/user-attachments/assets/5200a5e9-9ebf-4bdb-bb11-2c9d8a607023" />
+
+
+<img width="1291" height="990" alt="asd" src="https://github.com/user-attachments/assets/9853ef53-ed65-49b6-a077-a63aa2be9c77" />
+
 ---
 
 ## 1. El menú (1.21.11)
 
 Se abre con la tecla **J**, con `/clanes menu` o, si tienes **Mod Menu**, con el botón de configuración de ClanStats.
 
+<img width="2560" height="1440" alt="2026-11-13_22 36 20" src="https://github.com/user-attachments/assets/f03b224f-95b6-4dcb-b703-b7402e8c3e1c" />
+
+---
+
 **Izquierda, clanes**
-- Escribe un nombre (hasta 24 caracteres, con espacios y símbolos) y pulsa **Crear** (o Enter).
-- Cada clan muestra cuántos miembros están en la sala: `Lobos  3/5` = 3 conectados de 5.
+- Escribe un nombre (hasta 24 caracteres) y pulsa **Crear**.
+- Cada clan muestra cuántos miembros están en la sala.
 - **Color** abre la paleta (ver abajo). **Borrar clan** pide un segundo clic para confirmar.
+
+<img width="2560" height="1440" alt="2026-11-13_22 36 46" src="https://github.com/user-attachments/assets/86787431-efeb-426d-908c-ab6a216c9663" />
+
+---
 
 **Derecha, miembros del clan elegido**
 - Arriba, la fila **Total** con las kills (K), muertes (M) y KD del clan **entre clanes**, y cuántos están **en sala** y cuántos **fuera**.
@@ -31,27 +44,36 @@ Se abre con la tecla **J**, con `/clanes menu` o, si tienes **Mod Menu**, con el
 - **Añadir por nombre (registra uuid)**: escribe el nombre (Tab completa con los de la sala) y pulsa **Añadir**. Se guarda con el UUID de su cuenta: si está en la sala se agrega al instante; si no, se busca en Mojang y se agrega cuando responde. **Si el nombre no es de ninguna cuenta, no se guarda** y te avisa.
 - Al pasar el mouse por un jugador, abajo se ve su UUID y si está conectado.
 
+<img width="2560" height="1440" alt="2026-11-13_22 39 38" src="https://github.com/user-attachments/assets/cbe66c45-018d-42ef-b065-01e0308a51aa" />
+
+---
+
 **Botones debajo del panel derecho**
 - **Añadir desde la lista**: los jugadores de la sala que **no tienen clan** (con **+** para añadirlos) y, al final, los que ya están en el clan elegido (con ✔).
 - **Jugadores en sala**: **todos** los de la sala, con su clan en color y sus kills y muertes **totales** (contra cualquiera), ordenados por kills o KD.
-
-**Colores**: **Color** muestra una paleta de 32 colores; un clic lo cambia. Abajo puedes escribir un código hexadecimal (`#FF8800`) y pulsar **Aplicar** (o Enter). **« Color** vuelve a los miembros.
 
 **Abajo**
 - **HUD**: qué muestra el HUD (clanes, lobby, ambos o nada).
 - **Mod: Activado / Desactivado**: pausa el mod. Desactivado no cuenta kills ni muestra el HUD ni los colores; tus clanes y stats se quedan guardados y el menú se sigue abriendo para volver a activarlo.
 - **Desconectados: sí / no**: muestra u oculta a los miembros que no están en la sala, en el menú y en el HUD. Sus stats se siguen guardando y cuentan para el total del clan y el resumen de Discord.
 - **Opciones…**: abre las opciones (ver abajo).
-- **Copiar Discord**, **Reiniciar datos** (pide un segundo clic; los clanes no se borran), **Ordenar** (kills o KD, también para el HUD) y **Listo**.
+- **Copiar Discord**: Copia un resumen de los stats actuales.
+- **Reiniciar datos**: (pide un segundo clic; los clanes no se borran).
+- **Ordenar**: (kills o KD, también para el HUD) y **Listo**.
+
+---
 
 **Opciones…**
 - **Tecla del menú** y **Tecla del HUD**: clic y pulsa la tecla nueva (Esc cancela, Retroceso la deja sin tecla).
 - **Idioma**: Auto → Español → English.
 - **Color de clan en Tab y jugador: Activado / Desactivado**: el color del clan en la lista de Tab y en el nombre encima de cada jugador.
 
-Todo lo del menú también se puede hacer con comandos. En la versión 26.3 por ahora solo hay comandos.
+<img width="2560" height="1440" alt="2026-11-13_22 36 26" src="https://github.com/user-attachments/assets/bdd27d49-0e2e-49a3-b72b-1cb2cf97951a" />
 
-## 4. Uso con comandos
+
+Todo lo del menú también se puede hacer con comandos.
+
+## 2. Uso con comandos
 
 ```
 /clanes crear Lobos rojo
@@ -99,23 +121,13 @@ Todo lo del menú también se puede hacer con comandos. En la versión 26.3 por 
 
 Los mismos comandos existen en inglés con `/clans` (`/clans create`, `/clans add`, `/clans list`, `/clans language`, `/clans enable`, `/clans colors`, `/clans offline`...). Los dos funcionan siempre; los mensajes salen en el idioma elegido.
 
-## 5. Idioma
+## 3. Idioma
 
 - Por defecto (**Auto**) el mod usa **español** si el juego está en cualquier variante de español y **inglés** si está en cualquier otro idioma. Si cambias el idioma del juego, el mod cambia solo.
 - Para fijarlo: **Opciones… → Idioma** en el menú (Auto → Español → English) o `/clanes idioma es` / `/clans language en`.
 - Cambia todo: menú, HUD, mensajes del chat, **resumen de Discord** y resumen completo.
 
-## 6. Colores
-
-32 colores con nombre (en español o inglés, con o sin tildes):
-
-`rojo` · `rojo_oscuro` · `carmesi` · `coral` · `naranja` · `dorado` · `amarillo` · `lima` · `verde` · `verde_oscuro` · `esmeralda` · `oliva` · `menta` · `turquesa` · `aqua` · `cian` · `celeste` · `azul` · `azul_rey` · `azul_oscuro` · `lavanda` · `violeta` · `morado` · `magenta` · `rosa` · `rosa_claro` · `marron` · `beige` · `blanco` · `gris` · `gris_oscuro` · `negro`
-
-O cualquier otro con código hexadecimal: `#FF8800`, `#3FA7FF`, `#f80`... El color del clan se ve en el menú, el HUD, los mensajes del chat, en la **lista de Tab** y en el **nombre encima de cada jugador**. En esos dos lugares solo cambia el color del nombre: el rango y lo que agregan el servidor u otros mods se quedan igual. Se apaga en **Opciones… → Color de clan en Tab y jugador** o con `/clanes colores off`.
-
-**Mods de tiers (TierTagger, QTiers):** funcionan junto con ClanStats. Cada mod agrega lo suyo al mismo nombre, así que se ven el tier y el nombre con el color del clan a la vez, en el Tab y encima del jugador.
-
-## 10. Cómo detecta las kills
+## 4. Cómo detecta las kills
 
 1. Ya conoce las **87 kill messages de CubeCraft** (incluidas las de Plus, aunque traigan emotes en el nombre), las de Minecraft vanilla y patrones generales en inglés y español ("X fue asesinado por Y", "Y mató a X", "X was defeated by Y").
 2. Revisa que los nombres estén en la **lista de jugadores (Tab)**, e **ignora el chat de jugadores**: nadie puede inventar kills escribiendo "X was slain by Y".
@@ -129,7 +141,7 @@ O cualquier otro con código hexadecimal: `#FF8800`, `#3FA7FF`, `#f80`... El col
 
 **Límite importante:** solo cuenta lo que llega a **tu** chat. Si desactivas el chat, o si CubeCraft solo te muestra algunas kills (por ejemplo, estando en party), esas no se pueden contar.
 
-## 11. Archivos (`config/clanstats/` dentro de la carpeta del juego)
+## 5. Archivos (`config/clanstats/` dentro de la carpeta del juego)
 
 | Archivo | Contenido |
 |---|---|
@@ -143,11 +155,11 @@ O cualquier otro con código hexadecimal: `#FF8800`, `#3FA7FF`, `#f80`... El col
 
 Al actualizar desde la 1.1.0 no se pierde nada: los clanes, miembros, colores y la sesión se leen igual.
 
-## 12. ¿Está permitido en CubeCraft?
+## 6. ¿Está permitido en CubeCraft?
 
 El mod solo **lee el chat y dibuja en tu pantalla** (el HUD, el menú y el color de los nombres en tu propio Tab): no manda paquetes, no automatiza nada y no da ventaja en el combate, como los mods de HUD o contadores de kills. Aun así, revisa las reglas de mods de CubeCraft antes de usarlo; la responsabilidad es de cada jugador.
 
-## 14. Estructura del proyecto
+## 7. Estructura del proyecto
 
 ```
 common/                      código compartido por todas las versiones
