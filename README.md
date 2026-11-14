@@ -19,6 +19,9 @@ Mod de **cliente** para Fabric (Minecraft Java **1.21.11** y **26.3**) pensado p
 
 <img width="1291" height="990" alt="asd" src="https://github.com/user-attachments/assets/9853ef53-ed65-49b6-a077-a63aa2be9c77" />
 
+
+<img width="1610" height="927" alt="zzz" src="https://github.com/user-attachments/assets/0b435863-c9c2-4eda-b407-9983baa5a52f" />
+
 ---
 
 ## 1. El menú (1.21.11)
